@@ -1,17 +1,5 @@
-<div class="card" *ngIf="selectedMovie">
-    <div class="card-body">
-        seçili id: {{selectedMovie.id}} , adı: {{selectedMovie.name}}
-    </div>
-    <div class="input-group">
-        <input type="text"  [(ngModel)]="selectedMovie.name">
 
-        <div class="input-group-append">
-            <button>update</button>
-        </div>
-
-    </div>
-</div>
-
+<movie-detail [movie]="selectedMovie"></movie-detail>
 
 
 <div class="card">

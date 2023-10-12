@@ -1,0 +1,14 @@
+
+<div class="card" *ngIf="movie">
+    <div class="card-body">
+        seçili id: {{movie.id}} , adı: {{movie.name}}
+    </div>
+    <div class="input-group">
+        <input type="text"  [(ngModel)]="movie.name">
+
+        <div class="input-group-append">
+            <button>update</button>
+        </div>
+
+    </div>
+</div>
