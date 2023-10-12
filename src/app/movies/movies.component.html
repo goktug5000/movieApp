@@ -1,2 +1,20 @@
-<h2>tempUrlDNM</h2>
+<div class="card">
+    <div class="card-header">
+        {{title}}
+    </div>
+    <ul class="list-group list-group-flush">
+        <li *ngFor="let item of movies"  class="list-group-item">
+            <div>
+                {{item.id}}: {{item.name}}
+            </div>
+            <div>
+
+                <input type="checkbox">
+            </div>
+
+
+        </li>
+    </ul>
+</div>
+
 <movie></movie>
