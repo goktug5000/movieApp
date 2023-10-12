@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'movies',
-    template: '<h2>dnm</h2>'
+    templateUrl: 'movies.component.html'
 })
 
 export class MoviesComponent{
