@@ -3,15 +3,13 @@
         {{title}}
     </div>
     <ul class="list-group list-group-flush">
-        <li *ngFor="let item of movies"  class="list-group-item">
+        <li *ngFor="let item of movies" (click)="onSelect(item)"
+        class="list-group-item"
+        [class.active]="item===selectedMovie"
+        >
             <div>
                 {{item.id}}: {{item.name}}
             </div>
-            <div>
-
-                <input type="checkbox">
-            </div>
-
 
         </li>
     </ul>
