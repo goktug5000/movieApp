@@ -9,15 +9,20 @@ import { LoggingService } from './logging.service';
 })
 export class MovieService {
 
-  constructor(private loggingService:LoggingService) { 
+  constructor(private loggingService: LoggingService) {
 
 
   }
 
 
-  getMovies(): Observable<Movie[]>{
+  getMovies(): Observable<Movie[]> {
     this.loggingService.add('movie.service.ts: listing movies');
     return of(Movies);
   }
 
+
+  getMovie(id: number): Observable<Movie | undefined> {
+    this.loggingService.add('movie.service.ts: detailed movie id:' + id );
+    return of(Movies.find(dnm => dnm.id == id));
+  }
 }
