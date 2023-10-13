@@ -7,27 +7,27 @@ import { MovieService } from '../movie.service';
     styleUrls: ['./movies.component.css']
 })
 
-export class MoviesComponent{
-    title='myTitle';
+export class MoviesComponent {
+    title = 'myTitle';
     movies: Movie[] = [];
-    selectedMovie:any;
+    selectedMovie: any;
 
 
-    constructor(private movieService:MovieService){
+    constructor(private movieService: MovieService) {
 
 
     }
 
     ngOnInit(): void {
         this.setMovies();
-        
+
     }
 
-    onSelect(movie:Movie): void{
-        this.selectedMovie=movie;
+    onSelect(movie: Movie): void {
+        this.selectedMovie = movie;
     }
 
-    setMovies():void{
-        this.movies=this.movieService.getMovies();
+    setMovies(): void {
+        this.movieService.getMovies().subscribe(dnm => { this.movies = dnm });
     }
 }
