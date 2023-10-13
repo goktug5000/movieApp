@@ -3,26 +3,30 @@ import { Movie } from './movie';
 import { Movies } from './movie.datasource';
 import { Observable, of } from 'rxjs';
 import { LoggingService } from './logging.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
 
-  constructor(private loggingService: LoggingService) {
+  private apiMoviesUrl='api/movies';
 
+  constructor(
+    private loggingService: LoggingService,
+    private http: HttpClient
 
-  }
+  ) { }
 
 
   getMovies(): Observable<Movie[]> {
     this.loggingService.add('movie.service.ts: listing movies');
-    return of(Movies);
+    return this.http.get<Movie[]>(this.apiMoviesUrl);
   }
 
 
   getMovie(id: number): Observable<Movie | undefined> {
-    this.loggingService.add('movie.service.ts: detailed movie id:' + id );
+    this.loggingService.add('movie.service.ts: detailed movie id:' + id);
     return of(Movies.find(dnm => dnm.id == id));
   }
 }
