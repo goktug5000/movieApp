@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Movie } from './movie';
+import { Movies } from './movie.datasource';
 
 @Injectable({
   providedIn: 'root'
@@ -6,4 +8,10 @@ import { Injectable } from '@angular/core';
 export class MovieService {
 
   constructor() { }
+
+
+  getMovies():Movie[]{
+    return Movies;
+  }
+
 }
