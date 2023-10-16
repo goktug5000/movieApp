@@ -11,10 +11,35 @@
             <div>
                 {{item.id}}: {{item.name}}
             </div>
-
+            <button class="list-group-item" (click)="delete(item)">sil</button>
         </li>
     </ul>
     <button (click)="setMovies()">liste güncelle</button>
 </div>
 
 <movie></movie>
+
+
+
+<div class="card">
+    <div class="card-header">
+        add movie
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="name"></label>
+            <input #name type="text">
+        </div>
+        <div class="form-group">
+            <label for="desc"></label>
+            <input #desc type="text">
+        </div>
+        <div class="form-group">
+            <label for="imgUrl"></label>
+            <input #imgUrl type="text">
+        </div>
+        
+        <button (click)="add(name.value ,desc.value ,imgUrl.value); name.value=''; desc.value=''; imgUrl.value=''">ekle</button>
+    </div>
+
+</div>

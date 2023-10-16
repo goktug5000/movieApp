@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Movie } from '../movie';
 import { MovieService } from '../movie.service';
+import { LoggingService } from '../logging.service';
 @Component({
     selector: 'movies',
     templateUrl: 'movies.component.html',
@@ -12,10 +13,10 @@ export class MoviesComponent {
     movies: Movie[] = [];
     selectedMovie: any;
 
+    eklenecekMovie:Movie;
 
-    constructor(private movieService: MovieService) {
-
-
+    constructor(private movieService: MovieService, private loggingService: LoggingService) {
+        this.eklenecekMovie=new Movie(0,"","","");
     }
 
     ngOnInit(): void {
@@ -29,5 +30,16 @@ export class MoviesComponent {
 
     setMovies(): void {
         this.movieService.getMovies().subscribe(dnm => { this.movies = dnm });
+    }
+
+    add(namee:string,descc:string,imgUrl:string):void{
+        this.eklenecekMovie = new Movie(8,namee,descc,imgUrl);
+        this.loggingService.add("movie added");
+        console.log(this.eklenecekMovie);
+        this.movieService.add(this.eklenecekMovie).subscribe(movie=>this.movies.push(movie));
+    }
+    delete(moviee:Movie):void{
+        this.movies = this.movies.filter(m=>m!==moviee);
+        this.movieService.delete(moviee).subscribe();
     }
 }

@@ -36,4 +36,14 @@ export class MovieService {
     }
     return this.http.put(this.apiMoviesUrl,moviee,httpOptions);
   }
+
+  add(moviee:Movie):Observable<Movie>{
+    if(moviee.id==0){
+      //TODO: id 0sa listeden id bulacak
+    }
+    return this.http.post<Movie>(this.apiMoviesUrl,moviee);
+  }
+  delete(moviee:Movie):Observable<Movie>{
+    return this.http.delete<Movie>(this.apiMoviesUrl+'/'+moviee.id);
+  }
 }

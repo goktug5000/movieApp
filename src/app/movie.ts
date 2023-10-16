@@ -10,4 +10,5 @@ export class Movie{
         this.description=descriptionn;
         this.imgUrl=imgUrll;
     }
+
 }
